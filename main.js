@@ -15,7 +15,7 @@ $(document).ready(function()
     }
   )
 })
-&('.fa-circle').click(
+  $('.fa-circle').click(
   function() {
     alert("ciao")
   }
