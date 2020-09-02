@@ -1,6 +1,7 @@
 $(document).ready(function()
 {
-
+var slide = $(".images .slide");
+var dot = $(".nav .fa-circle");
   $('.next').click(
     function() {
       Next();
@@ -14,12 +15,19 @@ $(document).ready(function()
       dotPrev();
     }
   )
+  
+  dot.click(function () {
+
+  var indeX=$(this).index();
+  var currentSlide=slide.eq(indeX);
+  currentSlide.addClass('active');
+  $(this).addClass('active');
+
+  	$(".images img").not(currentSlide).removeClass('active');
+  	$(".fa-circle").not(this).removeClass('active');
+  });
 })
-  $('.fa-circle').click(
-  function() {
-    alert("ciao")
-  }
-)
+
 function Next() {
   var imgActive = $("img.active");
   imgActive.removeClass("active");
