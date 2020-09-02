@@ -1,4 +1,5 @@
-$(document).ready(function()
+$(document).ready(
+  function()
 {
   // dichiaro due variabili che mi torneranno utili più tardi
   var slide = $(".images .slide");
@@ -40,7 +41,24 @@ $(document).ready(function()
       	$(".images img").not(currentSlide).removeClass('active');
       	$(".fa-circle").not(this).removeClass('active');
   });
-})
+  // funzione per la pressione delle frecce direzionali
+  $(document).on('keydown',
+      function(tasto){
+        switch (tasto.which) {
+        case 37:
+        Prev();
+        dotPrev();
+          break;
+        case 39:
+        Next();
+        dotNext();
+          break;
+        default:
+        }
+        tasto.preventDefault();
+    });
+
+});
 // Inizio funzioni
 // funzione per andare avanti nel carousel
 function Next() {
@@ -94,4 +112,6 @@ function dotPrev() {
   }
   nextDot.addClass("active");
 }
+
+// funzione per la pressione delle frecce direzionali
 // fine funzioni
